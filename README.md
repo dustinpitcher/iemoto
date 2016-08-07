@@ -1,3 +1,7 @@
+# This is a fork of the awesome Iemoto
+
+It uses a different Gruntfile which uses grunt-sass instead of compass. Also has livereload enabled which also reloads for php file changes.
+
 # Iemoto
 
 This is a WordPress Starter Theme based on [_s](https://github.com/automattic/_s) and integrated with [grunt](http://gruntjs.com/project-scaffolding).
