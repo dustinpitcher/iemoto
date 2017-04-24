@@ -17,16 +17,16 @@ exports.warnOn = '*';
 exports.template = function( grunt, init, done ) {
     init.process( {}, [
         // Prompt for these values.
-        init.prompt( 'title', 'Iemoto' ),
+        init.prompt( 'title', 'MARCOM' ),
         {
             name   : 'prefix',
             message: 'PHP function prefix (alpha and underscore characters only)',
-            default: 'iemoto'
+            default: 'marcom'
         },
-        init.prompt( 'description', 'Megumi theme based on Underscores' ),
-        init.prompt( 'homepage', 'https://www.digitalcube.jp/' ),
-        init.prompt( 'author_name', 'DigitalCube Co.,Ltd' ),
-        init.prompt( 'author_url', 'https://www.digitalcube.jp/' ),
+        init.prompt( 'description', 'Custom Theme by The Marcom Group' ),
+        init.prompt( 'homepage', 'https://themarcomgroup.com/' ),
+        init.prompt( 'author_name', 'The Marcom Group' ),
+        init.prompt( 'author_url', 'https://themarcomgroup.com/' ),
         {
             name: 'gulp',
             message: 'Use gulp?',
@@ -39,22 +39,27 @@ exports.template = function( grunt, init, done ) {
         if ( props.gulp == 'y' ) {
             props.devDependencies = {
                 "gulp": "^3.9.0",
-                "gulp-compass": "^2.1.0",
+                "gulp-sass": "^3.1.0",
                 "gulp-jshint": "^1.12.0",
                 "gulp-load-plugins": "^0.7.0",
                 "gulp-notify": "^2.2.0",
                 "gulp-plumber": "^0.6.6",
                 "gulp-replace": "^0.5.0",
-                "run-sequence": "^1.2.0"
+                "run-sequence": "^1.2.0",
+                "bootstrap-sass": "^3.3.7",
+                "font-awesome": "^4.7.0"
             };
         } else {
             props.devDependencies = {
                 "grunt": "^1.0.0",
-                "grunt-contrib-compass": "^1.1.0",
+                "grunt-sass": "^2.0.0",
                 "grunt-contrib-jshint": "^1.0.0",
                 "grunt-contrib-watch": "^1.0.0",
                 "grunt-text-replace": "^0.4.0",
-                "load-grunt-tasks": "^3.5.0"
+                "load-grunt-tasks": "^3.5.0",
+                "bootstrap-sass": "^3.3.7",
+                "font-awesome": "^4.7.0"
+
             };
         }
         // Sanitize names where we need to for PHP/JS
@@ -94,7 +99,7 @@ exports.template = function( grunt, init, done ) {
         });
 
         fs.renameSync(
-            path.resolve('js')+'/iemoto.js',
+            path.resolve('js')+'/marcom.js',
             path.resolve('js')+'/'+props.file_name+'.js'
         );
 
