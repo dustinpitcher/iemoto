@@ -1,6 +1,18 @@
-# This is a fork of the awesome Iemoto
+# This is a fork of the awesome Iemoto. 
 
 It uses a different Gruntfile which uses grunt-sass instead of compass. Also has livereload enabled which also reloads for php file changes.
+
+Original project located here: based on [_s](https://github.com/automattic/_s) and integrated with [grunt](http://gruntjs.com/project-scaffolding).
+
+Similar except more opinionated:
+
+Compass has been removed because it's slow in c9.io which is what I use for these kinds of projects. Changed to grunt-contrib-sass / gulp-sass respectively.
+
+Added Bootstrap.
+
+Added Font Awesome.
+
+All credit goes to the original contributors. 
 
 # Iemoto
 
@@ -28,21 +40,15 @@ mkdir ~/.grunt-init
 
 ### Install Iemoto
 
-Get this templates via git.
+Get this template via git.
 
 ```
-git clone git@github.com:megumiteam/iemoto.git ~/.grunt-init/iemoto
-```
-
-Or if you prefer https, try this.
-
-```
-git clone https://github.com/megumiteam/iemoto.git ~/.grunt-init/iemoto
+git clone https://github.com/dustinpitcher/iemoto.git
 ```
 
 ### Sass(Compass)
 
-Iemoto utilizes Sass and Compass to create style.css and editor-style.css.
+Iemoto utilizes grunt / gulp sass to create style.css and editor-style.css.
 Get them first.
 
 * Sass: http://sass-lang.com/
@@ -83,12 +89,12 @@ question will show question-specific help and answering "none" to most questions
 will leave its value blank.
 
 Please answer the following:
-[?] Project title (Iemoto) 
-[?] PHP function prefix (alpha and underscore characters only) (iemoto) 
-[?] Description (This is a awesome cool plugin.) 
-[?] Project homepage (https://digitalcube.jp/) 
-[?] Author name (Digitalcube Co,.Ltd) 
-[?] Author url (https://digitalcube.jp/) 
+[?] Project title (MARCOM) 
+[?] PHP function prefix (alpha and underscore characters only) (marcom) 
+[?] Description (Custom Theme by The Marcom Group) 
+[?] Project homepage (https://themarcomgroup.com/) 
+[?] Author name (The Marcom Group) 
+[?] Author url (https://themarcomgroup.com/) 
 [?] Use gulp? (y/N) 
 [?] Do you need to make any changes to the above before continuing? (y/N)
 ```
@@ -104,97 +110,6 @@ npm install
 ```
 
 Files to be installed are defined in `package.json` file.
-
-Once you are done to this point, you can see all the files created as below.
-
-```
-├── 404.php
-├── archive.php
-├── comments.php
-├── footer.php
-├── functions.php
-├── Gruntfile.js (or gulpfile.js )
-├── header.php
-├── inc
-│   ├── custom-header.php
-│   ├── customizer.php
-│   ├── extras.php
-│   ├── jetpack.php
-│   └── template-tags.php
-├── index.php
-├── js
-│   ├── customizer.js
-│   ├── <themename>.js
-│   ├── navigation.js
-│   └── skip-link-focus-fix.js
-├── languages
-│   ├── <themename>.pot
-│   ├── ja.mo
-│   ├── ja.po
-│   └── readme.txt
-├── node_modules
-├── package.json
-├── page.php
-├── README.md
-├── readme.txt
-├── rtl.css
-├── sass
-│   ├── _normalize.scss
-│   ├── editor-style.scss
-│   ├── style.scss
-│   ├── elements
-│   │   ├── _elements.scss
-│   │   ├── _lists.scss
-│   │   └── _tables.scss
-│   ├── forms
-│   │   ├── _buttons.scss
-│   │   ├── _fields.scss
-│   │   └── _forms.scss
-│   ├── layout
-│   │   ├── _content-sidebar.scss
-│   │   └── _sidebar-content.scss
-│   ├── media
-│   │   ├── _captions.scss
-│   │   ├── _galleries.scss
-│   │   └── _media.scss
-│   ├── mixins
-│   │   └── _mixins-master.scss
-│   ├── modules
-│   │   ├── _accessibility.scss
-│   │   ├── _alignments.scss
-│   │   ├── _clearings.scss
-│   │   └── _infinite-scroll.scss
-│   ├── navigation
-│   │   ├── _links.scss
-│   │   ├── _menus.scss
-│   │   └── _navigation.scss
-│   ├── site
-│   │   ├── _site.scss
-│   │   ├── primary
-│   │   │   ├── _comments.scss
-│   │   │   └── _posts-and-pages.scss
-│   │   └── secondary
-│   │   │   └── _widgets.scss
-│   ├── typography
-│   │   ├── _copy.scss
-│   │   ├── _headings.scss
-│   │   └── _typography.scss
-│   └── variables-site
-│        ├── _colors.scss
-│        ├── _structure.scss
-│        ├── _typography.scss
-│        └── _variables-site.scss
-├── screenshot.png
-├── search.php
-├── sidebar.php
-├── single.php
-├── style.css
-└── template-parts
-      ├── content-none.php
-      ├── content-page.php
-      ├── content-search.php
-      └── content.php
-```
 
 Create you own theme now.
 
