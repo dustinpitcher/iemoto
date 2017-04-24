@@ -47,7 +47,8 @@ exports.template = function( grunt, init, done ) {
                 "gulp-replace": "^0.5.0",
                 "run-sequence": "^1.2.0",
                 "bootstrap-sass": "^3.3.7",
-                "font-awesome": "^4.7.0"
+                "font-awesome": "^4.7.0",
+                "browser-sync": "^3.3.7"
             };
         } else {
             props.devDependencies = {

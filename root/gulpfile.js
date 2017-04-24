@@ -1,11 +1,12 @@
 var gulp = require('gulp');
+var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 var $    = require('gulp-load-plugins')();
 var pkg  = require('./package.json');
 
 // javascript
 gulp.task('js', function() {
-  return gulp.src('js/{%= file_name %}.js')
+  return gulp.src('js/advanced-industrial-services.js')
     .pipe($.jshint())
     .pipe($.jshint.reporter('default'))
     .pipe($.notify(function (file) {
@@ -23,13 +24,13 @@ gulp.task('js', function() {
     .pipe(gulp.dest('js'))
 });
 
-// compass(sass)
-gulp.task('compass-dev', function() {
+// sass
+gulp.task('sass-dev', function() {
   return gulp.src('sass/*.scss')
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>")
     }))
-    .pipe($.compass({
+    .pipe($.sass({
       sass:      'sass',
       css:       'css',
       image:     'images',
@@ -41,12 +42,12 @@ gulp.task('compass-dev', function() {
     .pipe($.replace(/<%= pkg.version %>/g, pkg.version))
     .pipe(gulp.dest('css'))
 });
-gulp.task('compass-dist', function() {
+gulp.task('sass-dist', function() {
   return gulp.src('sass/*.scss')
     .pipe($.plumber({
       errorHandler: $.notify.onError("Error: <%= error.message %>")
     }))
-    .pipe($.compass({
+    .pipe($.sass({
       sass:      'sass',
       css:       './',
       image:     'images',
@@ -59,19 +60,22 @@ gulp.task('compass-dist', function() {
     .pipe(gulp.dest('./'))
 });
 
-gulp.task('compass', function(callback) {
+gulp.task('sass', function(callback) {
   return runSequence(
-    'compass-dev',
-    'compass-dist',
+    'sass-dev',
+    'sass-dist',
     callback
   );
 });
 
-// watch
-gulp.task('watch', function () {
-  gulp.watch('js/{%= file_name %}.js', ['js']);
-  gulp.watch('sass/{,*/}{,*/}*.scss', ['compass']);
+gulp.task('browser-sync', function() {  
+    browserSync.init(["*.css", "js/*.js","*.php", "*/*.php"], {
+        port: 8081
+    });
 });
 
 // default task
-gulp.task('default',['js','compass']);
+gulp.task('default',['js','sass','browser-sync'], function() {
+    gulp.watch('js/advanced-industrial-services.js', ['js']);
+    gulp.watch('sass/{,*/}{,*/}*.scss', ['sass']);
+});
